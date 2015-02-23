@@ -38,7 +38,7 @@ ExecStart=/bin/bash -c "\
               --rm \
               --name mongodb \
               -v /var/mongo:/data/db \
-              -p 27017:27017 \
+              -p $COREOS_PRIVATE_IPV4:27017:27017 \
               mongo:2.6 mongod $MONGO_ARGS"
 ExecStartPost=/bin/bash -c "\
           set -e; \
